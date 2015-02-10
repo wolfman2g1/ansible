@@ -2,6 +2,7 @@
 - hosts: lep
   sudo: true
   tasks:
+    - include: yum_upgrade.yml
     - name: Installs mariadb server
       yum: pkg=mariadb-server state=installed
       notify:

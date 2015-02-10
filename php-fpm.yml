@@ -1,0 +1,13 @@
+---
+- hosts: lep
+  sudo: true
+  tasks:
+    - include: epel.yml
+    - include: yum_upgrade.yml
+    - name: Installs php-fpm
+      yum: pkg=php--fpm state=installed
+
+
+  handlers:
+    - name: start php-fpm
+      service: name=php-fpm state=started enabled=yes

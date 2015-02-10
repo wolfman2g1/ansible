@@ -1,0 +1,19 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: ansible_playbook
+  playbook: nginx.yml
+  #ansible_yum_repo: "https://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm"
+  ansible_verbose: true
+  ansible_verbosity: 3
+  hosts: all
+
+platforms:
+  - name: centos-7.0
+
+suites:
+  - name: default
+    run_list:
+    attributes:

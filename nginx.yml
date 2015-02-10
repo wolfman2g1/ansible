@@ -1,6 +1,9 @@
 ---
 - hosts: lep
+  sudo: true
   tasks:
+    - include: epel.yml
+    - include: yum_upgrade.yml
     - name: Installs nginx web server
       yum: pkg=nginx state=installed
       notify:
