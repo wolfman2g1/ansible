@@ -7,4 +7,5 @@ group :test :integration do
   gem "serverspec"
   gem "kitchen-ansible"
   gem "kitchen-digitalocean"
+  gem " kitchen-docker"
 end
