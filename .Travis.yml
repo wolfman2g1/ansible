@@ -1,0 +1,9 @@
+language: ruby
+gemfile: Gemfile
+
+rvm:
+  - 1.9.3
+  - 2.2.0
+script:
+  - bundle exec kitchen test
+  - bundle exec  
