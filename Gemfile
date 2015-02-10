@@ -2,7 +2,7 @@
 source "https://rubygems.org"
 
 # gem "rails"
-group :test :integration do
+group :test  do
   gem "test-kitchen"
   gem "serverspec"
   gem "kitchen-ansible"
