@@ -7,5 +7,5 @@ group :test  do
   gem "serverspec"
   gem "kitchen-ansible"
   gem "kitchen-digitalocean"
-  gem " kitchen-docker"
+  gem "kitchen-docker", :git=> 'https://github.com/portertech/kitchen-docker.git'
 end
