@@ -1,0 +1,8 @@
+---
+- hosts: rhel
+  tasks:
+    - name: Installs the EPEL Repositor
+      yum: pkg=epel-release state=installed
+
+
+  

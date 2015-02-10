@@ -1,0 +1,12 @@
+---
+hosts: demo
+remote_user: root
+
+tasks: 
+- name : create user
+- user: name=wolfman groups=sudo append=yes shell=/bin/bash
+- name: add key
+- authorized_key: user=wolfman key="{{lookup('file', '/Users/rjones/.ssh/id_rsa.pub')}}" state= present
+   
+   
+   

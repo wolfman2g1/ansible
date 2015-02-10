@@ -1,0 +1,12 @@
+[demo]
+10.0.1.214 ansible_python_interpreter=/usr/bin/python2
+
+[rhel]
+
+[lep]
+
+[lap]
+
+[database]
+
+[cache]

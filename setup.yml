@@ -1,0 +1,41 @@
+---
+hosts: test
+
+remote_user: root
+
+tasks:
+ - name: create file system
+   filesystem: fstype=btrfs dev=/dev/sda2
+- name: create swap
+  shell: swapon /dev/sda1
+  
+- name: mount file system
+  shell: mount /dev/sda2 /mnt
+
+- name: install OS
+  shell: pacstrap -i /mnt base base-devel
+  
+- name: configure fstab
+  shell: genfstab -U -p /mnt >> /mnt/etc/fstab
+  
+- name: chroot system
+  shell: arch-chroot /mnt
+  
+- name: locale
+  lineinfile: dest=/etc/locale.gen regexp="^en_US.UTF-8 UTF-8" line="en_US.UTF-8 UTF-8"
+  shell: locale-gen
+  shell: echo LANG=en_US.UTF-8 > /etc/locale.conf
+  shell: export LANG=en_US.UTF-8
+  shell: ln -s /usr/share/zoneinfo/America/New_York> /etc/localtime
+  shell: hwclock --systohc --utc
+  
+- name: install grub
+  pacman: name=grub state=present
+  shell: mkinitcpio -p linux
+  shell: grub-mkconfig -o /boot/grub/grub.cfg
+  shell: systemctl enable dhcpcd@enp0s3.service
+  shell: exit
+  shell: reboot
+  
+  
+  

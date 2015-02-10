@@ -1,0 +1,12 @@
+---
+- hosts: lep
+  sudo: true
+  tasks:
+    - name: Installs mariadb server
+      yum: pkg=mariadb-server state=installed
+      notify:
+        - start mariadb-server
+
+  handlers:
+    - name: start mariadb
+      service: name=mariadb-server state=started enabled=yes

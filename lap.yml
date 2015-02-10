@@ -1,0 +1,11 @@
+---
+- hosts: lap
+  tasks:
+    - name: Installs nginx web server
+      yum: pkg=httpd state=installed update_cache=true
+      notify:
+        - start httpd
+
+  handlers:
+    - name: start httpd
+      service: name=httpd state=started
