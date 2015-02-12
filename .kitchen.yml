@@ -1,6 +1,6 @@
 ---
 driver:
-  name: docker
+  name: vagrant
 
 provisioner:
   name: ansible_playbook
@@ -11,7 +11,7 @@ provisioner:
   hosts: all
 
 platforms:
-  - name: centos
+  - name: centos-7.0
 
 suites:
   - name: default
