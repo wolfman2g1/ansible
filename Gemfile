@@ -9,4 +9,5 @@ group :test  do
   gem "kitchen-digitalocean"
   gem "kitchen-docker", :git=> 'https://github.com/portertech/kitchen-docker.git'
   gem "ansible_spec"
+  gem  "kitchen-vagrant"
 end
